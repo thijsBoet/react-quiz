@@ -1,0 +1,17 @@
+p>a {
+	padding: 1em;
+	text-decoration: none;
+	text-align: center;
+	color: #333;
+	font: normal normal bold 14px/1.4em "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+p>a:hover {
+	color: #eee;
+	background-color: #333;
+}
+
+p>a:active {
+	color: #333;
+	background-color: salmon;
+}
