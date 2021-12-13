@@ -1,14 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import SingleQuestion from './SingleQuestion';
 
-const Question = ({ questions }) => {
+const Question = ({
+		questions,
+		handleScoreToApp
+	}) => {
+	const [scoreBoard, setScoreBoard] = useState({
+		score: 0,
+		questionsAnswered: 0,
+	})
+
+	const handleScore = (scoreBoard) => {
+		setScoreBoard({
+			score: score, 
+			questionsAnswered: questionsAnswered
+		})
+		handleScoreToApp(scoreBoard)
+	}
 	return (
-		// <div>
-		// 	<h1>{questions[0].question}</h1>
-		// 	<p>
-		// 		<a href=''>{questions[0].answers[0]}</a>
-		// 	</p>
-		// </div>
 		<div>
 			{questions.map((question, index) => {
 				return (
@@ -17,6 +26,7 @@ const Question = ({ questions }) => {
 						<SingleQuestion
 							answers={question.answers}
 							correctAnswer={question.correctAnswer}
+							handleScore = {(scoreBoard) => handleScore(scoreBoard)}
 						/>
 					</div>
 				);

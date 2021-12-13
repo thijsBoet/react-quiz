@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './App.css';
 import Questions from './components/Questions';
 import Scoreboard from './components/ScoreBoard';
 
 function App() {
-	const [score, setScore] = useState(0);
-	const [questionsAnswered, setQuestionsAnswered] = useState(0);
+	const handleScoreToApp = (scoreBoard) => {
+
+	}
 
 	const questions = [
 		{
@@ -24,8 +25,13 @@ function App() {
 
 	return (
 		<div className='container'>
-			<Scoreboard score={score} questionsAnswered={questionsAnswered} />
-			<Questions questions={questions} />
+			<Scoreboard score={0} questionsAnswered={0} />
+			<Questions
+				questions={questions}
+				handleScoreToApp = {
+					(scoreBoard) => handleScoreToApp(scoreBoard)
+				}
+				/>
 		</div>
 	);
 }
